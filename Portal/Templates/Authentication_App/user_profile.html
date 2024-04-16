@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title_block %} Your Profile {% endblock  %}
+
+
+
+{% block body_block %}
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-4 my-1">
+
+            {% if user.user_profile.profile_pic %}
+                <img src="{{ user.user_profile.profile_pic.url }}" class="rounded" style="height: 300px; width: 100%;">
+                <a href=" {% url 'Authentication_App:update_dp' %} " class="btn btn-primary btn-sm my-1"style="width: 100%;"> Update Profile pic </a>
+                <a href=" {% url 'Authentication_App:delete_dp' %} " class="btn btn-primary btn-sm my-1"style="width: 100%;"> Delete Profile pic </a>
+            {% else %}
+                <img src="../../media/profile_pics/pngtree-cartoon-color-simple-male-avatar-png-image_1934459.jpg" class="rounded" style="height: 80%; width: 100%;">
+                <a href=" {% url 'Authentication_App:update_dp' %} " class="btn btn-primary btn-sm" style="width: 100%;" > Change Profile pic </a>
+            {% endif %}
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-8 my-1">
+            <p> <b>Username :</b> <span > {{ user.username }} </span></p>
+            <p> <b>Full Name :</b><span"> {{ user.first_name }} {{ user.last_name }} </span></p>
+            <p> <b>Mail :</b><span> {{ user.email }} </span></p>
+    </div>
+
+</div>
+{% endblock %}

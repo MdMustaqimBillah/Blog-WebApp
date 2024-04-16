@@ -1,0 +1,250 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {% block title_block %}  {% endblock %} </title>
+
+    <!-- Bootstrap 5 link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <!-- End Bootstrap 5 link -->
+
+    <!-- CSS link -->
+   
+    <!-- End CSS link -->
+    
+    <!-- Font Awesome CDN link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- End Font Awesome CDN link -->
+
+    <!-- AOS Animation Link -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- End AOS Animation Link -->
+
+</head>
+<body>
+    <!-- Navigation Bar And It's Contents-->
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary px-4">
+        <div class="container-fluid">
+          <a class="navbar-brand fs-2" href="{% url 'index' %}"><span class="text-danger" style="font-family: cursive;"> Letter</span><span class="text-success" style="font-family: cursive;">24 </span> </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'Authentication_App:user_profile' %}"> Profile </a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Settings
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href=" {% url 'Authentication_App:update_profile' %} "> Update Profile </a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href=" {% url 'Authentication_App:change_password' %} "> Change Password </a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="{% url 'Authentication_App:delete_account' %}" onclick='return confirm("Want To Delete The Account ?")' > Delete Account </a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#About"> About Us ? </a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#Links"> Our Social Media </a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="{% url 'Authentication_App:logout' %}"> Logout </a></li>
+                </ul>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'Authentication_App:login' %}"> Login </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'Authentication_App:signup' %}"> Sign Up </a>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- End Of Navigation Bar -->
+
+
+
+
+
+      <!-- Begining Of Body Block -->
+
+
+      <div class="py-0 mx-5">
+      {% block body_block %}
+
+
+      {% endblock %}
+      </div>
+
+
+      <!-- End Of Body Block -->
+
+
+
+
+      <!-- Begining Of Footer Block -->
+
+
+
+      {% block footer_block %}
+
+
+    </div>
+    <section class="footer bg-dark px-3 pt-3 pb-5">
+      <div class="row text-center">
+
+            <!-- About Us Section -->
+
+            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12 text-light text-center my-2 px-2" id="About">
+              <h1> Who Are We ? </h1>
+              <hr class="hr-footer text-center" >
+              <p style="text-align: justify;">As a recent entrant in the world of programming, I'm an enthusiastic learner with a growing proficiency in JavaScript, Python, Django and React. My knowledge is rooted in self-study and practical projects, which has instilled in me a strong foundation and the determination to further develop my skills. As a Management student, my ability to think critically, work under pressure, and collaborate effectively sets me apart. I'm eager to contribute my passion for technology and dedication to teamwork to your IT projects and continue my journey of growth in the field.  I have worked on some projects while learning JavaScript and Python and their framework. Thus, I have made responsive websites. Through the path I have demonstrated my problem solving skills, ensured data integrity and contributed various small-scale applications to sharpen my coding skill. </p>
+            </div>
+
+                  <!-- links and Others Section -->
+
+           <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12 text-center my-2 px-2" id="Links">
+              <h1 class="text-light mb-3"> Our Social Media Links </h1>
+              <hr class="text-light hr-footer text-center">
+              <div class="accordion" id="accordionExample">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          Facebook Account
+                    </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <strong> You are very welcome to visit my Facebook Account </strong> <p> To go to my Facebook Account please click on the Facebook icon.</p>
+                        <a href="https://www.facebook.com/profile.php?id=100078416757324" target="_blank"> <i class="fa-brands fa-facebook fs-1"></i> </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                        <h2 class="accordion-header">
+                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          Linkdin Account
+                          </button>
+                        </h2>
+                      <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                          <div class="accordion-body">
+                              <strong> You are very welcome to visit my Linkdin Account </strong> <p> To go to my    Linkdin Account please click on the Linkdin icon.</p>
+                              <a href="https://www.linkedin.com/in/md-mustaqim-billah-45bba729b/" target="_blank"> <i class="fa-brands fa-linkedin fs-1"></i> </a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="accordion-item">
+                        <h2 class="accordion-header">
+                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          Github Account
+                          </button>
+                        </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <strong> You are very welcome to visit my Github Account </strong> <p> To go to my Github Account please click on the Github icon.</p>
+                            <a href="https://github.com/MdMustaqimBillah" target="_blank"> <i class="fa-brands fa-square-github fs-1"></i> </a>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                        <h2 class="accordion-header">
+                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                          My Resume
+                          </button>
+                        </h2>
+                      <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                          <strong> You are very welcome to have a look on my resume </strong> <p> To get the latest resume please click on the icon.</p>
+                          <a href="https://drive.google.com/file/d/1G0ftSZxb09uCMVvBTH9UFcvisUggoweN/view?usp=sharing" target="_blank"> <i class="fa-solid fa-file fs-1"></i> </a>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              
+                  <div class="text-light my-3 text-center">
+                    <h1> About This Project </h1>
+                    <p class="fs-6 py-2" style="text-align: justify;">
+                      This project is a simple example of CRUD project. We have created this project using Django framework and its built-in packages. To design and make the User Interface attractive we used bootstrap 5. Besides, to ensure the webapp's efficient functionality, we created customized filters. Hope that you all like this webapp.                   
+                      </p>
+                  </div>
+           </div>
+
+                <!-- Contact Section -->
+
+            <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 text-light text-center mt-2 mb-3 px-auto" id="Contact">
+                  <h1> Contact Us </h1>
+                  <hr class="hr-footer text-center">
+                  <p class="fs-4 text-center mx-auto px-auto"> Mobile: +8801533805334 </p>
+                  <p class="fs-4 text-center mx-auto px-auto"> Alternative : +8801311337603 </p>
+                  <br>
+                  <p class="fs-4 text-center mx-atuo px-auto"> Mail:
+                    <br>
+                    muhammedalnoman@gmail.com </p>
+                  <p class="fs-4 text-center px-2 mx-auto px-auto"> Website:
+                    <br>
+                   <p> https://bestbookwriters.pythonanywhere.com </p>
+            </div>
+      </div>
+          <!-- Copyright Details -->
+          <div class="row border-bottom border-top border-light" id="Ownership">
+                  <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12 text-center text-light">
+                      <p class="text-center">Designed by:</p>
+                      <p class="text-center">Muhammad Noman</p>
+                  </div>
+                  <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12 text-center text-light">
+                      <p class="text-center">Developed by:</p>
+                      <p class="text-center">Md. Mustaqim Billah</p>
+                  </div>
+                  <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-12 col-sm-12 text-center text-light">
+                      <p class="text-center"> Partners:</p>
+                      <p class="text-center"> MT Technologies</p>
+                  </div>
+
+          </div>
+
+          <div class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 text-center mt-2 text-danger" id="Copyright">
+            <p class="text-center fs-4">© Md.Mustaqim Billah ®</p>
+      
+        
+          <a href="https://github.com/MdMustaqimBillah/" class="text-decoration-none"> <p class="text-center fs-4 text-light"> <i class="fa-brands fa-github fs-2"></i> Click for this project's repository</p> </a>
+      </div>
+
+    </section>
+
+
+      {% endblock %}
+
+
+
+      <!-- End Of Footer Block -->
+
+
+<!-- Jquery of Bootstrap 5 -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<!-- End of Bootstrap Jquery -->
+
+
+<!-- AOS Animation Jquery -->
+
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+  </script>
+
+
+<!-- End of AOS Animation Jquery -->
+
+</body>
+</html>

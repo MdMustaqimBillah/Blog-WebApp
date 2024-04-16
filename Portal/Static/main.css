@@ -1,0 +1,19 @@
+.form{
+    padding-top: 1%;
+    padding-bottom: 2%;
+}
+
+h1{
+    text-align: center;
+}
+
+p{
+    text-align: justify;
+}
+a{
+    text-decoration: none;
+}
+.btn{
+    width: 100%;
+    
+}

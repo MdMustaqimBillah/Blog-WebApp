@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title_block %} Update Information {% endblock %}
+
+{% block body_block %}
+
+<div class="mx-auto">
+{% if user.user_profile.profile_pic %}
+<img src="{{ user.user_profile.profile_pic.url }}" class="rounded my-1 mx-auto" style="height: 300px; width: 30%;">
+{% endif %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-primary mt-1 mb-2" style="width: 100%;"> Update </button>
+</form>
+
+</div>
+ 
+{% endblock %}
