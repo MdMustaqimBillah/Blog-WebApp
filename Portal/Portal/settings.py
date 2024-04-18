@@ -14,7 +14,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-TEMPLATES_DIR = BASE_DIR / 'Templates'
+TEMPLATES = BASE_DIR / 'Templates'
 
 
 
@@ -68,7 +68,7 @@ ROOT_URLCONF = 'Portal.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATES_DIR],
+        'DIRS': [TEMPLATES],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -90,7 +90,7 @@ WSGI_APPLICATION = 'Portal.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "portal",
+        "NAME": "discussion",
         "USER": "root",
         "PASSWORD": "",
         "HOST": "127.0.0.1",
@@ -123,7 +123,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Dhaka'
 
 USE_I18N = True
 
@@ -135,10 +135,10 @@ USE_TZ = True
 import os
 
 STATIC_URL = '/static/'
-STATICFILES_DIR = [BASE_DIR/'Static',]
+STATICFILES_DIRS = [BASE_DIR/'Static',]
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/Media/'
+MEDIA_ROOT = BASE_DIR/'Media'
 
 
 

@@ -11,7 +11,7 @@
     <!-- End Bootstrap 5 link -->
 
     <!-- CSS link -->
-   
+    <link rel="stylesheet" href="{% static 'main.css' %}">
     <!-- End CSS link -->
     
     <!-- Font Awesome CDN link -->
@@ -25,6 +25,7 @@
 </head>
 <body>
     <!-- Navigation Bar And It's Contents-->
+    {% block nav %}
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary px-4">
         <div class="container-fluid">
@@ -38,18 +39,21 @@
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'Authentication_App:user_profile' %}"> Profile </a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'Blog_App:post' %}"> Inform </a>
+              </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Settings
                 </a>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu mx-auto">
                   <li><a class="dropdown-item" href=" {% url 'Authentication_App:update_profile' %} "> Update Profile </a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="{% url 'Blog_App:user_posts' %}"> My Blogs </a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href=" {% url 'Authentication_App:change_password' %} "> Change Password </a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="{% url 'Authentication_App:delete_account' %}" onclick='return confirm("Want To Delete The Account ?")' > Delete Account </a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#About"> About Us ? </a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="#Links"> Our Social Media </a></li>
                   <li><hr class="dropdown-divider"></li>
@@ -68,7 +72,7 @@
           </div>
         </div>
       </nav>
-
+      {% endblock %}
       <!-- End Of Navigation Bar -->
 
 
@@ -189,9 +193,9 @@
                   <p class="fs-4 text-center mx-atuo px-auto"> Mail:
                     <br>
                     muhammedalnoman@gmail.com </p>
-                  <p class="fs-4 text-center px-2 mx-auto px-auto"> Website:
+                  <p class="fs-4 text-center mb-0 mx-auto px-auto"> Website: </p>
                     <br>
-                   <p> https://bestbookwriters.pythonanywhere.com </p>
+                    https://bestbookwriters.pythonanywhere.com </p>
             </div>
       </div>
           <!-- Copyright Details -->

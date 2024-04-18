@@ -5,6 +5,7 @@
 
 h1{
     text-align: center;
+    
 }
 
 p{
@@ -12,8 +13,12 @@ p{
 }
 a{
     text-decoration: none;
+    color: black;
 }
 .btn{
     width: 100%;
     
+}
+.cmnt_time{
+    font-size: 10px;
 }

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title_block %} {{ post.title }} {% endblock %}
+
+{% block body_block %}
+
+<div class="row">
+    <div class="col-11 my-2">
+        <h1 class="me-2"> {{ post.title }} </h1>
+    </div>
+    <div class="col-1 mt-1">
+        <div class="dropdown fs-4">
+            <button class="dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'Blog_App:update_post' slug=post.slug %}"> Update Post </a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="{% url 'Blog_App:delete_post' slug=post.slug %}"> Delete Post </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<img src="/Media/{{ post.image }}" style="height: 300px; width: 100%;">
+<p class="ps-1 my-0">{{ post.posted_on }} </p>
+<p> {{ post.content|linebreaks }} </p>
+<div class="row">
+
+</div>
+
+{% endblock %}

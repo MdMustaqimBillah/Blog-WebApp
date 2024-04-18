@@ -13,9 +13,9 @@
             {% if user.user_profile.profile_pic %}
                 <img src="{{ user.user_profile.profile_pic.url }}" class="rounded" style="height: 300px; width: 100%;">
                 <a href=" {% url 'Authentication_App:update_dp' %} " class="btn btn-primary btn-sm my-1"style="width: 100%;"> Update Profile pic </a>
-                <a href=" {% url 'Authentication_App:delete_dp' %} " class="btn btn-primary btn-sm my-1"style="width: 100%;"> Delete Profile pic </a>
+                <a href=" {% url 'Authentication_App:delete_dp' %} " class="btn btn-primary btn-sm my-1"style="width: 100%;" onclick="return confirm('Want To Delete The Image ?')"> Delete Profile pic </a>
             {% else %}
-                <img src="../../media/profile_pics/pngtree-cartoon-color-simple-male-avatar-png-image_1934459.jpg" class="rounded" style="height: 80%; width: 100%;">
+                <img src="../../Media/profile_pics/pngtree-cartoon-color-simple-male-avatar-png-image_1934459.jpg" class="rounded" style="height: 80%; width: 100%;">
                 <a href=" {% url 'Authentication_App:update_dp' %} " class="btn btn-primary btn-sm" style="width: 100%;" > Change Profile pic </a>
             {% endif %}
     </div>
