@@ -12,29 +12,29 @@ Home
 
 {% block body_block %}
 
-{% for post in posts %}
+{% for blog in blogs %}
 
 <div class="row mx-auto px-auto">
     <div class="col-sm-12 col-md-6 col-lg-5">
 
-        <img src="/Media/{{ post.image }}" alt="Image Not Found" class="mt-1 rounded list_post_image">
+        <img src="/Media/{{ blog.image }}" alt="Image Not Found" class="mt-1 rounded list_post_image">
 
     </div>
 
     <div class="col-sm-12 col-md-6 col-lg-7 mx-auto text-center">
-        <h1> {{ post.title }} </h1>
-        <p> {{ post.content|slice }}<a href="{% url 'Blog_App:post_details' slug=post.slug %}"><B>...see more</B></a> </p>
+        <h1> {{ blog.title }} </h1>
+        <p> {{ blog.content|slice }}<a href="{% url 'Blog_App:post_details' slug=blog.slug %}"><B>...see more</B></a> </p>
         <div class="row">
             <div class="col-2 col-sm-2 col-md-2 col-lg-1">
-                {% if post.author.user_profile.profile_pic %}
+                {% if blog.author.user_profile.profile_pic %}
                 <img src="{{ post.author.user_profile.profile_pic.url }}" class="rounded-circle" style="height: 100%; width: 100%;">
                 {% else %}
                 <img src="../../Media/profile_pics/pngtree-cartoon-color-simple-male-avatar-png-image_1934459.jpg" style="height: 100%; width: 100%;">
                 {% endif %}
             </div>
             <div class="col-10 col-sm-10 col-md-10 col-lg-11 border-start border-secondary">
-                <p class="ps-1 my-0">{{ post.posted_on }} </p>
-                <p class="my-0"><b>Author : </b>{{ post.author.username }}</p>
+                <p class="ps-1 my-0">{{ blog.posted_on }} </p>
+                <p class="my-0"><b>Author : </b>{{ blog.author.username }}</p>
             </div>
         </div>
     </div>

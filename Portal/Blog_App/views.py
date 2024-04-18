@@ -16,7 +16,7 @@ from Blog_App.forms import CommentForm
 class IndexView(ListView):    
     model = models.Blog
     template_name = 'Blog_App/index.html'
-    context_object_name = 'posts'
+    context_object_name = 'blogs'
 
 
 class Post(LoginRequiredMixin, CreateView):
