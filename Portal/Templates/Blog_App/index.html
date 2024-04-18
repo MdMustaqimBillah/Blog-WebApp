@@ -27,7 +27,7 @@ Home
         <div class="row">
             <div class="col-2 col-sm-2 col-md-2 col-lg-1">
                 {% if blog.author.user_profile.profile_pic %}
-                <img src="{{ post.author.user_profile.profile_pic.url }}" class="rounded-circle" style="height: 100%; width: 100%;">
+                <img src="{{ blog.author.user_profile.profile_pic.url }}" class="rounded-circle" style="height: 100%; width: 100%;">
                 {% else %}
                 <img src="../../Media/profile_pics/pngtree-cartoon-color-simple-male-avatar-png-image_1934459.jpg" style="height: 100%; width: 100%;">
                 {% endif %}
