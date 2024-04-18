@@ -11,7 +11,7 @@
     <div class="col-sm-12 col-md-6 col-lg-4 my-1">
 
             {% if user.user_profile.profile_pic %}
-                <img src="{{ user.user_profile.profile_pic.url }}" class="rounded" style="height: 300px; width: 100%;">
+                <img src="{{ user.user_profile.profile_pic.url }}" class="rounded post_image">
                 <a href=" {% url 'Authentication_App:update_dp' %} " class="btn btn-primary btn-sm my-1"style="width: 100%;"> Update Profile pic </a>
                 <a href=" {% url 'Authentication_App:delete_dp' %} " class="btn btn-primary btn-sm my-1"style="width: 100%;" onclick="return confirm('Want To Delete The Image ?')"> Delete Profile pic </a>
             {% else %}

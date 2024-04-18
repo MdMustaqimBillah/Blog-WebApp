@@ -17,11 +17,11 @@ Home
 <div class="row mx-auto px-auto">
     <div class="col-sm-12 col-md-6 col-lg-5">
 
-        <img src="/Media/{{ post.image }}" alt="Image Not Found" style="height: 100%; width: 100%;">
+        <img src="/Media/{{ post.image }}" alt="Image Not Found" class="mt-1 rounded list_post_image">
 
     </div>
 
-    <div class="col-sm-12 col-md-6 col-lg-7">
+    <div class="col-sm-12 col-md-6 col-lg-7 mx-auto text-center">
         <h1> {{ post.title }} </h1>
         <p> {{ post.content|slice }}<a href="{% url 'Blog_App:post_details' slug=post.slug %}"><B>...see more</B></a> </p>
         <div class="row">

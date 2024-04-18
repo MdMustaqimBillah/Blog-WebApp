@@ -6,7 +6,7 @@
 
 <div class="row">
     <div class="col-11 my-2">
-        <h1 class="me-2"> {{ post.title }} </h1>
+        <h1 class="me-2"> {{ blog.title }} </h1>
     </div>
     <div class="col-1 mt-1">
         <div class="dropdown fs-4">
@@ -14,18 +14,45 @@
                 <i class="fa-solid fa-ellipsis-vertical"></i>
             </button>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="{% url 'Blog_App:update_post' slug=post.slug %}"> Update Post </a></li>
+              <li><a class="dropdown-item" href="{% url 'Blog_App:update_post' slug=blog.slug %}"> Update Post </a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="{% url 'Blog_App:delete_post' slug=post.slug %}"> Delete Post </a></li>
+              <li><a class="dropdown-item" href="{% url 'Blog_App:delete_post' slug=blog.slug %}"> Delete Post </a></li>
             </ul>
         </div>
     </div>
 </div>
-<img src="/Media/{{ post.image }}" style="height: 300px; width: 100%;">
-<p class="ps-1 my-0">{{ post.posted_on }} </p>
-<p> {{ post.content|linebreaks }} </p>
-<div class="row">
-
+<img src="/Media/{{ blog.image }}" class="post_image">
+<p class="ps-1 my-0">{{ blog.posted_on }} </p>
+<p> {{ blog.content|linebreaks }} </p>
+<div class="mb-0 ms-2">
+    <p><i class="fa-solid fa-heart"></i>{{ blog.blog_like.count }}</p>
+</div>
+<hr>
+<div class="mt-1">
+Comments| <i class="fa-regular fa-comment"></i> {{ blog.blog_comment.count }}
+<ul class="ps-0 ms-0">
+    {% for comment in blog.blog_comment.all %}
+    <div class="bg-secondary-subtle rounded fs-5 pt-2 ps-2 mb-0 row mt-2">
+        <div class="mb-0 pb-0 col-11">
+            <p class="pb-0 mb-0"> <b> {{comment.author}} </b> </p>
+            <p class="pt-0 mt-0">{{comment.comment }} </p>
+        </div>
+        <div class="col-1">
+            {% if user == blog.author %}
+            <div class="dropdown mt-0 fs-6">
+                <button class="dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="{% url 'Blog_App:delete_comment' pk=comment.pk %}"> Delete Comment </a></li>
+                </ul>
+            </div>
+            {% endif %}
+        </div>
+        <p class="pt-0 ps-1 mt-0 pb-0 cmnt_time"> {{ comment.updated_on }} </p>
+    </div>
+    {% endfor %}
+</ul>
 </div>
 
 {% endblock %}

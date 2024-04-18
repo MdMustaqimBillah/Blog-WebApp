@@ -5,7 +5,7 @@
 
 {% block body_block %}
 
-<img src="/Media/{{ blog.image }}" style="height: 300px; width: 100%;">
+<img src="/Media/{{ blog.image }}" class="post_image mt-2 rounded">
 <p class="ps-1 my-0">{{ blog.posted_on }} </p>
 <p class="my-0"><b>Author : </b>{{ blog.author.username }}</p>
 <h1> {{ blog.title }} </h1>
@@ -32,7 +32,7 @@
         </form>   
     </div>
     <div class="col-sm-12 col-md-6 col-lg-7 border-start border-end border-secondary pt-2">
-        All Comments : ( <b>{{ blog.blog_comment.count }}</b> )
+        All Comments| <i class="fa-regular fa-comment"></i><b>{{ blog.blog_comment.count }}</b> 
         <hr class="mt-1">
         <ul class="ps-0 ms-0">
             {% for comment in blog.blog_comment.all %}

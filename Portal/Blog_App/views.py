@@ -65,9 +65,9 @@ def post_details(request,slug):
 
 @login_required
 def user_post_details(request, slug):
-    post = models.Blog.objects.get(slug=slug)
+    blog = models.Blog.objects.get(slug=slug)
     dictionary = {
-        'post': post,
+        'blog': blog,
     }
     return render(request, 'Blog_App/user_post_details.html', context=dictionary)
 
