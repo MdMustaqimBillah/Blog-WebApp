@@ -19,13 +19,10 @@ TEMPLATES = BASE_DIR / 'Templates'
 
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-^mp&7s83b@6@gbad-=sdeta@4y&t5vm*xw3^yj$(&pemyj#c3y'
 
-# SECURITY WARNING: don't run with debug turned on in production!
+
 DEBUG = True
 
 ALLOWED_HOSTS = []
